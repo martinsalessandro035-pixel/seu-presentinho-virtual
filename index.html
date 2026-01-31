@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pra você</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      line-height: 1.8;
+      overflow-x: hidden;
+      background-color: #0f0f0f;
+    }
+
+    /* TOPO COM FOTO1 */
+    .topo {
+      height: 80vh; /* menos que 100 para deixar espaço pro texto rolar */
+      background-image: url("imagens/foto1.jpg");
+      background-size: cover; 
+      background-position: center;
+      background-attachment: fixed; /* mantém nitidez */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .topo h1 {
+      background: rgba(0,0,0,0.5); /* fundo semi-transparente pro texto */
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 2em;
+    }
+
+    /* IMAGENS DE FUNDO */
+    .fundos img {
+      position: fixed;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    .img1 { top: 10%; left: 5%; width: 220px; }
+    .img2 { top: 60%; left: 10%; width: 180px; }
+    .img3 { top: 15%; right: 8%; width: 200px; }
+    .img4 { top: 70%; right: 12%; width: 170px; }
+    .img5 { bottom: 10%; left: 40%; width: 190px; }
+
+    /* TEXTO */
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 100px 20px;
+    }
+
+    p {
+      margin-bottom: 40px;
+      font-size: 1.05em;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- IMAGENS DE FUNDO FIXAS -->
+  <div class="fundos">
+    <img src="imagens/foto2.jpg" class="img1">
+    <img src="imagens/foto3.jpg" class="img2">
+    <img src="imagens/foto4.jpg" class="img3">
+    <img src="imagens/foto5.jpg" class="img4">
+    <img src="imagens/foto6.jpg" class="img5">
+  </div>
+
+  <!-- TOPO COM TEXTO -->
+  <div class="topo">
+    <h1>isso aqui é só pra você</h1>
+  </div>
+
+  <!-- SEÇÃO DE TEXTO -->
+  <section>
+    <p>Aqui você coloca os textos longos que quiser. Pode escrever várias memórias, frases ou pensamentos.</p>
+    <p>Pode criar quantos parágrafos quiser, vai rolar naturalmente conforme ela desce a página.</p>
+  </section>
+
+</body>
+</html>
