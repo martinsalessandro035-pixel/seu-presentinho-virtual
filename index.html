@@ -10,16 +10,16 @@
       font-family: Arial, sans-serif;
       color: #ffffff;
       line-height: 1.8;
-      overflow-x: hidden;
       background-color: #0f0f0f;
     }
 
-    /* TOPO COM FOTO1 */
+    /* TOPO */
     .topo {
-      height: 80vh; /* menos que 100 para deixar espaço pro texto rolar */
+      height: 80vh;
       background-image: url("imagens/foto1.jpg");
-      background-size: cover; 
+      background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,17 +27,23 @@
     }
 
     .topo h1 {
-      background: rgba(0,0,0,0.5); /* fundo semi-transparente pro texto */
+      background: rgba(0,0,0,0.5);
       padding: 20px 30px;
       border-radius: 20px;
       font-size: 2em;
+      animation: fadeDown 1.5s ease;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* IMAGENS DE FUNDO */
     .fundos img {
       position: fixed;
       z-index: -1;
-      opacity: 0.2;
+      opacity: 0.18;
     }
 
     .img1 { top: 10%; left: 5%; width: 220px; }
@@ -46,24 +52,60 @@
     .img4 { top: 70%; right: 12%; width: 170px; }
     .img5 { bottom: 10%; left: 40%; width: 190px; }
 
-    /* TEXTO */
     section {
       max-width: 800px;
       margin: auto;
       padding: 100px 20px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     p {
-      margin-bottom: 40px;
+      margin-bottom: 35px;
       font-size: 1.05em;
     }
 
+    /* CAIXA DE PERGUNTAS */
+    .caixa {
+      margin-top: 80px;
+    }
+
+    .pergunta {
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 18px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .pergunta:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease, opacity 0.6s ease;
+      opacity: 0;
+      padding-left: 10px;
+    }
+
+    .pergunta.ativa .resposta {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 15px;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- IMAGENS DE FUNDO FIXAS -->
+  <!-- IMAGENS -->
   <div class="fundos">
     <img src="imagens/foto2.jpg" class="img1">
     <img src="imagens/foto3.jpg" class="img2">
@@ -72,80 +114,105 @@
     <img src="imagens/foto6.jpg" class="img5">
   </div>
 
-  <!-- TOPO COM TEXTO -->
+  <!-- TOPO -->
   <div class="topo">
     <h1>isso aqui é só pra você</h1>
   </div>
 
-  <!-- SEÇÃO DE TEXTO -->
- <section>
+  <!-- TEXTO -->
+  <section>
 
-  <p>Acho que já falei bastante sobre destino naquela pequena cartinha…<br>
-  mas percebi que não falei o suficiente sobre você.</p>
+    <p>
+      Acho que já falei bastante sobre destino naquela pequena cartinha…  
+      mas percebi que não falei o suficiente sobre você.
+    </p>
 
-  <p>Sobre o quanto você se dedica.<br>
-  Sobre o quanto você tenta.<br>
-  Sobre o quanto você sente.</p>
+    <p>
+      Sobre o quanto você se dedica.  
+      Sobre o quanto você tenta.  
+      Sobre o quanto você sente.
+    </p>
 
-  <p>Eu vejo, meu amor.<br>
-  Eu vejo você, vejo o nosso futuro, vejo o seu esforço mesmo quando você acha que ninguém está vendo.<br>
-  E, seja lá o que eu tente dizer com tudo isso… no fim sempre dá na mesma frase:<br>
-  <strong>eu te amo.</strong></p>
+    <p>
+      Eu vejo, meu amor.  
+      Eu vejo você, vejo o nosso futuro, vejo o seu esforço mesmo quando você acha que ninguém está vendo.  
+      E, seja lá o que eu tente dizer com tudo isso… no fim sempre dá na mesma frase:  
+      eu te amo.
+    </p>
 
-  <p>Esses dias não estão fáceis. E não estão mesmo.<br>
-  Mas, enquanto eu faço esse site, a gente assiste mais uma prova do líder e provavelmente o próximo grupo vai esquecer o bastão de novo kkkkk,<br>
-  eu percebo uma coisa muito clara:<br>
-  até hoje, não me faltou nada.</p>
+    <p>
+      Esses dias não estão fáceis. E não estão mesmo.  
+      Mas, enquanto eu faço esse site, a gente assiste mais uma prova do líder e provavelmente o próximo grupo vai esquecer o bastão de novo kkkkk,  
+      eu percebo uma coisa muito clara: até hoje, não me faltou nada.
+    </p>
 
-  <p>E não vai faltar.</p>
+    <p>
+      E não vai faltar.
+    </p>
 
-  <p>Eu não vejo a hora de realizar nossos pequenos sonhos.<br>
-  Casar no Stardew.<br>
-  Construir nossa casinha.<br>
-  Viver tranquilo.<br>
-  Ser feliz um com o outro.</p>
+    <p>
+      Eu não vejo a hora de realizar nossos pequenos sonhos.  
+      Casar no Stardew.  
+      Construir nossa casinha.  
+      Viver tranquilo.  
+      Ser feliz um com o outro.
+    </p>
 
-  <p>E, acima de todos eles, o maior sonho de todos:<br>
-  continuar sendo o amor da sua vida amanhã.</p>
+    <p>
+      E, acima de todos eles, o maior sonho de todos:  
+      continuar sendo o amor da sua vida amanhã.
+    </p>
 
-  <p>Até porque, mesmo hoje, eu já sei exatamente o que eu quero amanhã.<br>
-  <strong>Eu quero você.</strong></p>
+    <p>
+      Até porque, mesmo hoje, eu já sei exatamente o que eu quero amanhã.  
+      Eu quero você.
+    </p>
 
-  <p>Espero que você tenha certeza de tudo o que eu falo.<br>
-  Que sinta que nada está faltando.<br>
-  Mas, se me permite arriscar… eu imagino o que pode estar passando pela sua cabeça.</p>
+    <!-- CAIXA DE PERGUNTAS -->
+    <div class="caixa">
+      <h2>📦 Caixa de perguntas</h2>
 
-  <h2>📦 Caixa de perguntas</h2>
+      <div class="pergunta" onclick="this.classList.toggle('ativa')">
+        <strong>1️⃣ “E se você achar alguém melhor?”</strong>
+        <div class="resposta">
+          <p>
+            Eu não estou procurando alguém melhor.  
+            Eu já encontrei você.
+          </p>
+          <p>
+            Melhor não é quem aparece depois, é quem fica.  
+            Quem constrói.  
+            Quem cresce junto.
+          </p>
+          <p>
+            E tudo o que eu imagino de futuro… só faz sentido com você nele.
+          </p>
+        </div>
+      </div>
 
-  <p><strong>1️⃣ “E se você achar alguém melhor?”</strong></p>
+      <div class="pergunta" onclick="this.classList.toggle('ativa')">
+        <strong>2️⃣ “E se faltar algo?”</strong>
+        <div class="resposta">
+          <p>
+            Se um dia faltar, a gente constrói.  
+            Conversa.  
+            Aprende.  
+            Se adapta.
+          </p>
+          <p>
+            Porque amor não é ausência de falta,  
+            é vontade de preencher juntos.
+          </p>
+          <p>
+            E enquanto for nós dois, tentando, cuidando e escolhendo um ao outro…  
+            nunca vai faltar o que realmente importa.
+          </p>
+        </div>
+      </div>
 
-  <p>Eu não estou procurando alguém melhor.<br>
-  Eu já encontrei você.</p>
+    </div>
 
-  <p>Melhor não é quem aparece depois, é quem fica.<br>
-  Quem constrói.<br>
-  Quem cresce junto.</p>
-
-  <p>E tudo o que eu imagino de futuro…<br>
-  só faz sentido com você nele.</p>
-
-  <p><strong>2️⃣ “E se faltar algo?”</strong></p>
-
-  <p>Se um dia faltar, a gente constrói.<br>
-  Conversa.<br>
-  Aprende.<br>
-  Se adapta.</p>
-
-  <p>Porque amor não é ausência de falta,<br>
-  é vontade de preencher juntos.</p>
-
-  <p>E enquanto for nós dois, tentando, cuidando e escolhendo um ao outro…<br>
-  nunca vai faltar o que realmente importa.</p>
-
-</section>
-
+  </section>
 
 </body>
 </html>
-
-
